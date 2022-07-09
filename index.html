@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fluid</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    
+    <link rel="shortcut icon" id="icon" href="https://d29fhpw069ctt2.cloudfront.net/icon/image/48995/preview.svg">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Edu+TAS+Beginner&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap');
+        
+        body{
+            margin: 2px;
+        }
+        input{
+            height: 50px;
+            width: 400px;
+            border-radius: 60px;
+            border-color: 4px solid black;
+            font-size: 25px;
+            font-family: 'Edu TAS Beginner', cursive;
+        }
+        h2{
+            font-family: 'Monsterrat', sans-serif;
+            font-weight: 100;
+        }
+        button{
+            width: 200px;
+        }
+
+    </style>
+</head>
+<body>
+   <h2>Some links might not work</h2>
+    <input id="link" placeholder="link goes here">
+    <br><br>
+    <button id="go" class="button is-dark is-rounded">Go to page</button>
+    <br><br>
+    <button id="favicon">Change Favicon</button>
+    <button id="title">Change Title</button>
+    <script>
+    const go = document.querySelector('#go');
+    const favi = document.querySelector('#favicon');
+    const title = document.querySelector('#title');
+    const icon = document.querySelector('#icon')
+    go.addEventListener('click', function(){
+        const link = document.getElementById('link').value;
+        const win = window.open();
+        const ifr = win.document.createElement('iframe');
+        ifr.src = link;
+        ifr.style.width = '100%';
+        ifr.style.height = '100%';
+        win.document.body.appendChild(ifr);
+    });
+    favi.addEventListener('click', function(){
+        var faviLink = prompt('Link of favicon');
+        icon.href = faviLink;
+    });
+    title.addEventListener('click', function(){
+        var newTitle = prompt('New Title');
+        document.title = newTitle;
+    });
+
+    </script>
+</body>
+</html>
